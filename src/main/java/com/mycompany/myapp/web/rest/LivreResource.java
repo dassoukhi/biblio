@@ -116,24 +116,4 @@ public class LivreResource {
         livreRepository.deleteById(id);
         return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();
     }
-
-    @GetMapping("/livre_byTheme")
-    public List<Livre> getAllTLivreByTheme(@RequestParam(required = false, defaultValue = "") String theme) {
-        log.debug("REST request to get all Livres by theme");
-        return livreRepository.findAllByTheme(theme);
-    }
-    
-    
-    @GetMapping("/livre_by_auteur")
-    public List<Livre> getAllTLivreByAuteur(@RequestParam(required = false, defaultValue = "") String auteur) {
-        log.debug("REST request to get all Livres by auteur");
-        return livreRepository.findAllByAuteur(auteur);
-    }
-    
-    @GetMapping("/livres_by_titre/{titre}")
-    public ResponseEntity<Livre> getLivreByTitre(@PathVariable String titre) {
-        log.debug("REST request to get Livre : {}", titre);
-        Optional<Livre> livre = livreRepository.findByTitre(titre);
-        return ResponseUtil.wrapOrNotFound(livre);
-    }
 }
