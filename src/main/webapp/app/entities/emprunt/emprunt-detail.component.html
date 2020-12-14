@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="emprunt">
+            <h2><span>Emprunt</span> {{ emprunt.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Date Emprunt</span></dt>
+                <dd>
+                    <span>{{ emprunt.dateEmprunt }}</span>
+                </dd>
+                <dt><span>Exemplaire</span></dt>
+                <dd>
+                    <div *ngIf="emprunt.exemplaire">
+                        <a [routerLink]="['/exemplaire', emprunt.exemplaire?.id, 'view']">{{ emprunt.exemplaire?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span>User</span></dt>
+                <dd>
+                    {{ emprunt.user?.login }}
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/emprunt', emprunt.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

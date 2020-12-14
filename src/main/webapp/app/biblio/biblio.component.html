@@ -1,0 +1,133 @@
+<div class="row">
+    <div id="Content" class="col-md-3">
+        <div>
+            <input type="text" [(ngModel)]="titre" class="form-control" id="searchbar" placeholder="enter title, autor, or theme">
+        </div>
+
+        <div class="divbutton">
+            <br/>
+            <button type="button" (click)="parAuteur()" class="btn btn-outline-secondary">search by autor</button>
+            <br/>
+            <button type="button" (click)="loadAllParTheme()" class="btn btn-outline-secondary">search by theme</button>
+            <br/>
+            <button type="button" (click)="loadLivre()" class="btn btn-outline-secondary">search by title</button>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div id="Content" class="col-md-7">
+        <div *ngIf="on && livres" class="ContentRightAff table-responsive">
+            <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                    <tr>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.titre">Titre</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.description">Description</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.code">Auteur</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.isbn">Disponibilité</span></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let livre of livres ;trackBy: trackId">
+                        <td><a [routerLink]="['/livre', livre.id, 'view']">{{ livre.titre }}</a></td>
+                        <td>{{ livre.description }}</td>
+                        <td>{{ getAuteur(livre.id) }}</td>
+                        <td>{{ getExem(livre.id) }}</td>
+                        <td class="text-right">
+                            <div class="btn-group">
+
+                                <button type="submit"
+                                        [routerLink]="['/livre', livre.id, 'view']"
+                                        class="btn btn-info btn-sm">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                                </button>
+    
+                              
+                                <button type="submit"
+                                        [routerLink]="['/livre', livre.id, 'view']"
+                                        class="btn btn-success btn-sm">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Reserver</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="auteurs && livres" class="ContentRightAff table-responsive" id="contentlivres">
+            <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                    <tr>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.titre">Titre</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.description">Description</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.code">Auteur</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.isbn">Disponibilité</span></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let livre of livres ;trackBy: trackId">
+                        <td><a [routerLink]="['/livre', livre.id, 'view']">{{ livre.titre }}</a></td>
+                        <td>{{ livre.description }}</td>
+                        <td>{{ getAuteur(livre.id) }}</td>
+                        <td>{{ getExem(livre.id) }}</td>
+                        <td class="text-right">
+                            <div class="btn-group">
+                                
+                                <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
+                                        [routerLink]="['/livre', livre.id, 'view']"
+                                        class="btn btn-success btn-sm">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                                <button *ngIf="getExem(livre.id) === 'Non'" type="submit"
+                                        class="btn btn-secondary disabled">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div *ngIf="livre" class="ContentRightAff table-responsive" id="contentlivre">
+            <table class="table table-striped" aria-describedby="page-heading">
+                <thead>
+                    <tr>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.titre">Titre</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.description">Description</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.code">Auteur</span></th>
+                        <th scope="col" ><span jhiTranslate="jhdemoApp.livre.isbn">Disponibilité</span></th>
+                        <th scope="col"></th>
+                    </tr>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><a [routerLink]="['/livre', livre.id, 'view']">{{ livre.titre }}</a></td>
+                        <td>{{ livre.description }}</td>
+                        <td>{{ getAuteur(livre.id) }}</td>
+                        <td>{{ getExem(livre.id) }}</td>
+                        <td class="text-right">
+                            <div class="btn-group">
+                                <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
+                                [routerLink]="['/livre', livre.id, 'view']"
+                                class="btn btn-success btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">Emprunter</span>
+                            </button>
+                            <button *ngIf="getExem(livre.id) === 'Non'" type="submit"
+                                    class="btn btn-secondary disabled">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">Emprunter</span>
+                            </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

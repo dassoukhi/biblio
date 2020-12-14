@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.mycompany.myapp"
+    },
+    "jhipsterVersion": "6.10.5",
+    "applicationType": "monolith",
+    "baseName": "biblio",
+    "packageName": "com.mycompany.myapp",
+    "packageFolder": "com/mycompany/myapp",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "NzJkZjU5N2VmZDZkZTkyOWY4ZWMxZmQ2MzVjM2U0YzczYzJkNzk1OWMyMTVkNzZjNzU0ZDg4NDc2NWVkYjZhYmVjYjI2OTA5YjRiYzBlMTdiMDMyZjAyOGNjNTg1ODQ1OTMxNjE3ZjcyZTY1YTJkOWQ0Njk4OTg5ZDU0Njc4OWY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1607770829175,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": []
+  }
+}
