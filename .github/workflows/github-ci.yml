@@ -34,15 +34,16 @@ jobs:
                   SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
               run: |
                   if [ -n $SONAR_TOKEN ]; then
-                      ./mvnw -ntp initialize sonar:sonar -Dsonar.organization=dassoukhi-1 -Dsonar.host.url=https://sonarcloud.io
+                      mvn -ntp initialize sonar:sonar -Dsonar.organization=dassoukhi-1 -Dsonar.host.url=https://sonarcloud.io
                   else
                       echo No SONAR_TOKEN, skipping...
                   fi
               continue-on-error: true    
             - name: Package application
-              run: ./mvnw -ntp package deploy -Pprod -DskipTests
+              run: mvn -ntp package deploy -Pprod -DskipTests
+              continue-on-error: true
             - name: Deploy to Heroku
               if: github.event_name == 'push' && github.ref == 'refs/heads/master'
               env:
                   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-              run: ./mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=biblio
+              run: mvnw -ntp com.heroku.sdk:heroku-maven-plugin:2.0.5:deploy -DskipTests -Pprod -Dheroku.buildpacks=heroku/jvm -Dheroku.appName=biblio
