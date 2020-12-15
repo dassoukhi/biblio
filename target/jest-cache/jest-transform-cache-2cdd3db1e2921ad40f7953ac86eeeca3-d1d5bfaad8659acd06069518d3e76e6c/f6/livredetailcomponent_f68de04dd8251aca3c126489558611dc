@@ -1,0 +1,51 @@
+ec05fa1ae24959c20fdb277f008bca20
+/* istanbul ignore next */
+function cov_ht7irmhcv() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\livre\\livre-detail.component.html";
+  var hash = "1dd6eda2bf3d75a045f76dee58c65ac1c6ff0f5b";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\livre\\livre-detail.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 1729
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "1dd6eda2bf3d75a045f76dee58c65ac1c6ff0f5b"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_ht7irmhcv = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_ht7irmhcv();
+cov_ht7irmhcv().s[0]++;
+module.exports = "<div class=\"row justify-content-center\">\n    <div class=\"col-8\">\n        <div *ngIf=\"livre\">\n            <h2><span>Livre</span> {{ livre.id }}</h2>\n\n            <hr>\n\n            <jhi-alert-error></jhi-alert-error>\n\n            <dl class=\"row-md jh-entity-details\">\n                <dt><span>Titre</span></dt>\n                <dd>\n                    <span>{{ livre.titre }}</span>\n                </dd>\n                <dt><span>Description</span></dt>\n                <dd>\n                    <span>{{ livre.description }}</span>\n                </dd>\n                <dt><span>Isbn</span></dt>\n                <dd>\n                    <span>{{ livre.isbn }}</span>\n                </dd>\n                <dt><span>Code</span></dt>\n                <dd>\n                    <span>{{ livre.code }}</span>\n                </dd>\n                <dt><span>Emplacement</span></dt>\n                <dd>\n                    <div *ngIf=\"livre.emplacement\">\n                        <a [routerLink]=\"['/emplacement', livre.emplacement?.id, 'view']\">{{ livre.emplacement?.id }}</a>\n                    </div>\n                </dd>\n            </dl>\n\n            <button type=\"submit\"\n                    (click)=\"previousState()\"\n                    class=\"btn btn-info\">\n                <fa-icon icon=\"arrow-left\"></fa-icon>&nbsp;<span>Back</span>\n            </button>\n\n            <button type=\"button\"\n                    [routerLink]=\"['/livre', livre.id, 'edit']\"\n                    class=\"btn btn-primary\">\n                <fa-icon icon=\"pencil-alt\"></fa-icon>&nbsp;<span>Edit</span>\n            </button>\n        </div>\n    </div>\n</div>\n";

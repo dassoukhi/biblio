@@ -1,0 +1,51 @@
+0aa2108350d9e1d0ed89e3d63d499f90
+/* istanbul ignore next */
+function cov_1o21ut8l2w() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\livre\\livre.component.html";
+  var hash = "71b10dc99df009ea4db8b74f25bdc996b5792d18";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\livre\\livre.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 3321
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "71b10dc99df009ea4db8b74f25bdc996b5792d18"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1o21ut8l2w = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1o21ut8l2w();
+cov_1o21ut8l2w().s[0]++;
+module.exports = "<div>\n    <h2 id=\"page-heading\">\n        <span>Livres</span>\n\n        <button id=\"jh-create-entity\" class=\"btn btn-primary float-right jh-create-entity create-livre\" [routerLink]=\"['/livre/new']\">\n            <fa-icon icon=\"plus\"></fa-icon>\n            <span>\n            Create a new Livre\n            </span>\n        </button>\n    </h2>\n\n    <jhi-alert-error></jhi-alert-error>\n\n    <jhi-alert></jhi-alert>\n\n    <div class=\"alert alert-warning\" id=\"no-result\" *ngIf=\"livres?.length === 0\">\n        <span>No livres found</span>\n    </div>\n\n    <div class=\"table-responsive\" id=\"entities\" *ngIf=\"livres && livres.length > 0\">\n        <table class=\"table table-striped\" aria-describedby=\"page-heading\">\n            <thead>\n                <tr>\n                    <th scope=\"col\" ><span>ID</span></th>\n                    <th scope=\"col\" ><span>Titre</span></th>\n                    <th scope=\"col\" ><span>Description</span></th>\n                    <th scope=\"col\" ><span>Isbn</span></th>\n                    <th scope=\"col\" ><span>Code</span></th>\n                    <th scope=\"col\" ><span>Emplacement</span></th>\n                    <th scope=\"col\"></th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr *ngFor=\"let livre of livres ;trackBy: trackId\">\n                    <td><a [routerLink]=\"['/livre', livre.id, 'view']\">{{ livre.id }}</a></td>\n                    <td>{{ livre.titre }}</td>\n                    <td>{{ livre.description }}</td>\n                    <td>{{ livre.isbn }}</td>\n                    <td>{{ livre.code }}</td>\n                    <td>\n                        <div *ngIf=\"livre.emplacement\">\n                            <a [routerLink]=\"['/emplacement', livre.emplacement?.id, 'view']\" >{{ livre.emplacement?.id }}</a>\n                        </div>\n                    </td>\n                    <td class=\"text-right\">\n                        <div class=\"btn-group\">\n                            <button type=\"submit\"\n                                    [routerLink]=\"['/livre', livre.id, 'view']\"\n                                    class=\"btn btn-info btn-sm\">\n                                <fa-icon icon=\"eye\"></fa-icon>\n                                <span class=\"d-none d-md-inline\">View</span>\n                            </button>\n\n                            <button type=\"submit\"\n                                    [routerLink]=\"['/livre', livre.id, 'edit']\"\n                                    class=\"btn btn-primary btn-sm\">\n                                <fa-icon icon=\"pencil-alt\"></fa-icon>\n                                <span class=\"d-none d-md-inline\">Edit</span>\n                            </button>\n\n                            <button type=\"submit\" (click)=\"delete(livre)\"\n                                    class=\"btn btn-danger btn-sm\">\n                                <fa-icon icon=\"times\"></fa-icon>\n                                <span class=\"d-none d-md-inline\">Delete</span>\n                            </button>\n                        </div>\n                    </td>\n                </tr>\n            </tbody>\n        </table>\n    </div>\n</div>\n";

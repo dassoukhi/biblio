@@ -1,0 +1,51 @@
+ddb3e2f824a2eddeaa4e23210847d932
+/* istanbul ignore next */
+function cov_1fznkbqvve() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\theme\\theme-detail.component.html";
+  var hash = "e9857c43e039549a801e41f76fbc3cd01a4b689a";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\theme\\theme-detail.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 1311
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "e9857c43e039549a801e41f76fbc3cd01a4b689a"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1fznkbqvve = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1fznkbqvve();
+cov_1fznkbqvve().s[0]++;
+module.exports = "<div class=\"row justify-content-center\">\n    <div class=\"col-8\">\n        <div *ngIf=\"theme\">\n            <h2><span>Theme</span> {{ theme.id }}</h2>\n\n            <hr>\n\n            <jhi-alert-error></jhi-alert-error>\n\n            <dl class=\"row-md jh-entity-details\">\n                <dt><span>Theme</span></dt>\n                <dd>\n                    <span>{{ theme.theme }}</span>\n                </dd>\n                <dt><span>Livre</span></dt>\n                <dd>\n                    <span *ngFor=\"let livre of theme.livres; let last = last\">\n                        <a [routerLink]=\"['/livre', livre?.id, 'view']\">{{ livre.titre }}</a>{{ last ? '' : ', ' }}\n                    </span>\n                </dd>\n            </dl>\n\n            <button type=\"submit\"\n                    (click)=\"previousState()\"\n                    class=\"btn btn-info\">\n                <fa-icon icon=\"arrow-left\"></fa-icon>&nbsp;<span>Back</span>\n            </button>\n\n            <button type=\"button\"\n                    [routerLink]=\"['/theme', theme.id, 'edit']\"\n                    class=\"btn btn-primary\">\n                <fa-icon icon=\"pencil-alt\"></fa-icon>&nbsp;<span>Edit</span>\n            </button>\n        </div>\n    </div>\n</div>\n";

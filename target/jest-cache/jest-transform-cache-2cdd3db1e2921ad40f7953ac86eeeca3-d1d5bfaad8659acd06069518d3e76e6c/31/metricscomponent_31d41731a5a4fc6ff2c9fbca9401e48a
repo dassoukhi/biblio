@@ -1,0 +1,51 @@
+ec187146df747e5677d8a50cfb46d66e
+/* istanbul ignore next */
+function cov_2gipuld7rg() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\admin\\metrics\\metrics.component.html";
+  var hash = "a099f6c9a567b23a4693d3da6e1a3a3204af7360";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\admin\\metrics\\metrics.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 2315
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "a099f6c9a567b23a4693d3da6e1a3a3204af7360"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2gipuld7rg = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2gipuld7rg();
+cov_2gipuld7rg().s[0]++;
+module.exports = "<div>\r\n    <h2>\r\n        <span id=\"metrics-page-heading\">Application Metrics</span>\r\n\r\n        <button class=\"btn btn-primary float-right\" (click)=\"refresh()\">\r\n            <fa-icon icon=\"sync\"></fa-icon> <span>Refresh</span>\r\n        </button>\r\n    </h2>\r\n\r\n    <h3>JVM Metrics</h3>\r\n\r\n    <div class=\"row\" *ngIf=\"metrics && !updatingMetrics\">\r\n        <jhi-jvm-memory\r\n            class=\"col-md-4\"\r\n            [updating]=\"updatingMetrics\"\r\n            [jvmMemoryMetrics]=\"metrics.jvm\">\r\n        </jhi-jvm-memory>\r\n\r\n        <jhi-jvm-threads\r\n            class=\"col-md-4\"\r\n            [threadData]=\"threads\">\r\n        </jhi-jvm-threads>\r\n\r\n        <jhi-metrics-system\r\n            class=\"col-md-4\"\r\n            [updating]=\"updatingMetrics\"\r\n            [systemMetrics]=\"metrics.processMetrics\">\r\n        </jhi-metrics-system>\r\n    </div>\r\n\r\n    <div *ngIf=\"metrics && metricsKeyExists('garbageCollector')\">\r\n        <h3>Garbage collector statistics</h3>\r\n\r\n        <jhi-metrics-garbagecollector\r\n            [updating]=\"updatingMetrics\"\r\n            [garbageCollectorMetrics]=\"metrics.garbageCollector\">\r\n        </jhi-metrics-garbagecollector>\r\n    </div>\r\n\r\n    <div class=\"well well-lg\" *ngIf=\"updatingMetrics\">Updating...</div>\r\n\r\n    <jhi-metrics-request\r\n        *ngIf=\"metrics && metricsKeyExists('http.server.requests')\"\r\n        [updating]=\"updatingMetrics\"\r\n        [requestMetrics]=\"metrics['http.server.requests']\">\r\n    </jhi-metrics-request>\r\n\r\n    <jhi-metrics-endpoints-requests\r\n        *ngIf=\"metrics && metricsKeyExists('services')\"\r\n        [updating]=\"updatingMetrics\"\r\n        [endpointsRequestsMetrics]=\"metrics.services\">\r\n    </jhi-metrics-endpoints-requests>\r\n\r\n    <jhi-metrics-cache\r\n        *ngIf=\"metrics && metricsKeyExists('cache')\"\r\n        [updating]=\"updatingMetrics\"\r\n        [cacheMetrics]=\"metrics.cache\">\r\n    </jhi-metrics-cache>\r\n\r\n    <jhi-metrics-datasource\r\n        *ngIf=\"metrics && metricsKeyExistsAndObjectNotEmpty('databases')\"\r\n        [updating]=\"updatingMetrics\"\r\n        [datasourceMetrics]=\"metrics.databases\">\r\n    </jhi-metrics-datasource>\r\n</div>\r\n";

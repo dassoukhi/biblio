@@ -1,0 +1,272 @@
+da60e8239df44a81aa4f653eb7862cc9
+"use strict";
+
+/* istanbul ignore next */
+function cov_1ou5wd6qq7() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\account\\activate\\activate.service.ts";
+  var hash = "747f84ee3b7de6a492991502f13b2a56ad737990";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\account\\activate\\activate.service.ts",
+    statementMap: {
+      "0": {
+        start: {
+          line: 2,
+          column: 0
+        },
+        end: {
+          line: 2,
+          column: 62
+        }
+      },
+      "1": {
+        start: {
+          line: 3,
+          column: 0
+        },
+        end: {
+          line: 3,
+          column: 33
+        }
+      },
+      "2": {
+        start: {
+          line: 4,
+          column: 16
+        },
+        end: {
+          line: 4,
+          column: 32
+        }
+      },
+      "3": {
+        start: {
+          line: 5,
+          column: 15
+        },
+        end: {
+          line: 5,
+          column: 39
+        }
+      },
+      "4": {
+        start: {
+          line: 6,
+          column: 15
+        },
+        end: {
+          line: 6,
+          column: 46
+        }
+      },
+      "5": {
+        start: {
+          line: 7,
+          column: 24
+        },
+        end: {
+          line: 7,
+          column: 52
+        }
+      },
+      "6": {
+        start: {
+          line: 8,
+          column: 22
+        },
+        end: {
+          line: 17,
+          column: 1
+        }
+      },
+      "7": {
+        start: {
+          line: 10,
+          column: 8
+        },
+        end: {
+          line: 10,
+          column: 25
+        }
+      },
+      "8": {
+        start: {
+          line: 13,
+          column: 8
+        },
+        end: {
+          line: 15,
+          column: 11
+        }
+      },
+      "9": {
+        start: {
+          line: 18,
+          column: 0
+        },
+        end: {
+          line: 21,
+          column: 20
+        }
+      },
+      "10": {
+        start: {
+          line: 22,
+          column: 0
+        },
+        end: {
+          line: 22,
+          column: 42
+        }
+      }
+    },
+    fnMap: {
+      "0": {
+        name: "(anonymous_0)",
+        decl: {
+          start: {
+            line: 9,
+            column: 4
+          },
+          end: {
+            line: 9,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 9,
+            column: 22
+          },
+          end: {
+            line: 11,
+            column: 5
+          }
+        },
+        line: 9
+      },
+      "1": {
+        name: "(anonymous_1)",
+        decl: {
+          start: {
+            line: 12,
+            column: 4
+          },
+          end: {
+            line: 12,
+            column: 5
+          }
+        },
+        loc: {
+          start: {
+            line: 12,
+            column: 13
+          },
+          end: {
+            line: 16,
+            column: 5
+          }
+        },
+        line: 12
+      }
+    },
+    branchMap: {},
+    s: {
+      "0": 0,
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 0,
+      "5": 0,
+      "6": 0,
+      "7": 0,
+      "8": 0,
+      "9": 0,
+      "10": 0
+    },
+    f: {
+      "0": 0,
+      "1": 0
+    },
+    b: {},
+    inputSourceMap: {
+      file: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\account\\activate\\activate.service.ts",
+      mappings: ";;;;AAAA,wCAA2C;AAC3C,+CAA8D;AAG9D,qDAAmD;AAGnD,IAAa,eAAe,GAA5B,MAAa,eAAe;IAC1B,YAAoB,IAAgB;QAAhB,SAAI,GAAJ,IAAI,CAAY;IAAG,CAAC;IAExC,GAAG,CAAC,GAAW;QACb,OAAO,IAAI,CAAC,IAAI,CAAC,GAAG,CAAC,8BAAc,GAAG,cAAc,EAAE;YACpD,MAAM,EAAE,IAAI,iBAAU,EAAE,CAAC,GAAG,CAAC,KAAK,EAAE,GAAG,CAAC;SACzC,CAAC,CAAC;IACL,CAAC;CACF,CAAA;AARY,eAAe;IAD3B,iBAAU,CAAC,EAAE,UAAU,EAAE,MAAM,EAAE,CAAC;6CAEP,iBAAU;GADzB,eAAe,CAQ3B;AARY,0CAAe",
+      names: [],
+      sources: ["C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\account\\activate\\activate.service.ts"],
+      sourcesContent: ["import { Injectable } from '@angular/core';\r\nimport { HttpClient, HttpParams } from '@angular/common/http';\r\nimport { Observable } from 'rxjs';\r\n\r\nimport { SERVER_API_URL } from 'app/app.constants';\r\n\r\n@Injectable({ providedIn: 'root' })\r\nexport class ActivateService {\r\n  constructor(private http: HttpClient) {}\r\n\r\n  get(key: string): Observable<{}> {\r\n    return this.http.get(SERVER_API_URL + 'api/activate', {\r\n      params: new HttpParams().set('key', key),\r\n    });\r\n  }\r\n}\r\n"],
+      version: 3
+    },
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "747f84ee3b7de6a492991502f13b2a56ad737990"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1ou5wd6qq7 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1ou5wd6qq7();
+cov_1ou5wd6qq7().s[0]++;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+/* istanbul ignore next */
+cov_1ou5wd6qq7().s[1]++;
+exports.ActivateService = void 0;
+const tslib_1 =
+/* istanbul ignore next */
+(cov_1ou5wd6qq7().s[2]++, require("tslib"));
+const core_1 =
+/* istanbul ignore next */
+(cov_1ou5wd6qq7().s[3]++, require("@angular/core"));
+const http_1 =
+/* istanbul ignore next */
+(cov_1ou5wd6qq7().s[4]++, require("@angular/common/http"));
+const app_constants_1 =
+/* istanbul ignore next */
+(cov_1ou5wd6qq7().s[5]++, require("app/app.constants"));
+
+/* istanbul ignore next */
+cov_1ou5wd6qq7().s[6]++;
+let ActivateService = class ActivateService {
+  constructor(http) {
+    /* istanbul ignore next */
+    cov_1ou5wd6qq7().f[0]++;
+    cov_1ou5wd6qq7().s[7]++;
+    this.http = http;
+  }
+
+  get(key) {
+    /* istanbul ignore next */
+    cov_1ou5wd6qq7().f[1]++;
+    cov_1ou5wd6qq7().s[8]++;
+    return this.http.get(app_constants_1.SERVER_API_URL + 'api/activate', {
+      params: new http_1.HttpParams().set('key', key)
+    });
+  }
+
+};
+
+/* istanbul ignore next */
+cov_1ou5wd6qq7().s[9]++;
+ActivateService = tslib_1.__decorate([core_1.Injectable({
+  providedIn: 'root'
+}), tslib_1.__metadata("design:paramtypes", [http_1.HttpClient])], ActivateService);
+
+/* istanbul ignore next */
+cov_1ou5wd6qq7().s[10]++;
+exports.ActivateService = ActivateService;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIkM6XFxVc2Vyc1xcRGFzc1xcRGVza3RvcFxcTWFzdGVyMV9ZTk9WXFxEZXZMb2dpY2llbFxcYmlibGlvXFxzcmNcXG1haW5cXHdlYmFwcFxcYXBwXFxhY2NvdW50XFxhY3RpdmF0ZVxcYWN0aXZhdGUuc2VydmljZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFjRzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFkSCxNQUFBLE1BQUE7QUFBQTtBQUFBLDBCQUFBLE9BQUEsQ0FBQSxlQUFBLENBQUEsQ0FBQTtBQUNBLE1BQUEsTUFBQTtBQUFBO0FBQUEsMEJBQUEsT0FBQSxDQUFBLHNCQUFBLENBQUEsQ0FBQTtBQUdBLE1BQUEsZUFBQTtBQUFBO0FBQUEsMEJBQUEsT0FBQSxDQUFBLG1CQUFBLENBQUEsQ0FBQTs7OztBQUdBLElBQWEsZUFBZSxHQUE1QixNQUFhLGVBQWIsQ0FBNEI7QUFDMUIsRUFBQSxXQUFBLENBQW9CLElBQXBCLEVBQW9DO0FBQUE7QUFBQTtBQUFBO0FBQWhCLFNBQUEsSUFBQSxHQUFBLElBQUE7QUFBb0I7O0FBRXhDLEVBQUEsR0FBRyxDQUFDLEdBQUQsRUFBWTtBQUFBO0FBQUE7QUFBQTtBQUNiLFdBQU8sS0FBSyxJQUFMLENBQVUsR0FBVixDQUFjLGVBQUEsQ0FBQSxjQUFBLEdBQWlCLGNBQS9CLEVBQStDO0FBQ3BELE1BQUEsTUFBTSxFQUFFLElBQUksTUFBQSxDQUFBLFVBQUosR0FBaUIsR0FBakIsQ0FBcUIsS0FBckIsRUFBNEIsR0FBNUI7QUFENEMsS0FBL0MsQ0FBUDtBQUdEOztBQVB5QixDQUE1Qjs7OztBQUFhLGVBQWUsR0FBQSxPQUFBLENBQUEsVUFBQSxDQUFBLENBRDNCLE1BQUEsQ0FBQSxVQUFBLENBQVc7QUFBRSxFQUFBLFVBQVUsRUFBRTtBQUFkLENBQVgsQ0FDMkIsRSx5Q0FDQSxNQUFBLENBQUEsVSxFQURBLENBQUEsRUFBZixlQUFlLENBQWY7Ozs7QUFBQSxPQUFBLENBQUEsZUFBQSxHQUFBLGVBQUEiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmplY3RhYmxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XHJcbmltcG9ydCB7IEh0dHBDbGllbnQsIEh0dHBQYXJhbXMgfSBmcm9tICdAYW5ndWxhci9jb21tb24vaHR0cCc7XHJcbmltcG9ydCB7IE9ic2VydmFibGUgfSBmcm9tICdyeGpzJztcclxuXHJcbmltcG9ydCB7IFNFUlZFUl9BUElfVVJMIH0gZnJvbSAnYXBwL2FwcC5jb25zdGFudHMnO1xyXG5cclxuQEluamVjdGFibGUoeyBwcm92aWRlZEluOiAncm9vdCcgfSlcclxuZXhwb3J0IGNsYXNzIEFjdGl2YXRlU2VydmljZSB7XHJcbiAgY29uc3RydWN0b3IocHJpdmF0ZSBodHRwOiBIdHRwQ2xpZW50KSB7fVxyXG5cclxuICBnZXQoa2V5OiBzdHJpbmcpOiBPYnNlcnZhYmxlPHt9PiB7XHJcbiAgICByZXR1cm4gdGhpcy5odHRwLmdldChTRVJWRVJfQVBJX1VSTCArICdhcGkvYWN0aXZhdGUnLCB7XHJcbiAgICAgIHBhcmFtczogbmV3IEh0dHBQYXJhbXMoKS5zZXQoJ2tleScsIGtleSksXHJcbiAgICB9KTtcclxuICB9XHJcbn1cclxuIl19

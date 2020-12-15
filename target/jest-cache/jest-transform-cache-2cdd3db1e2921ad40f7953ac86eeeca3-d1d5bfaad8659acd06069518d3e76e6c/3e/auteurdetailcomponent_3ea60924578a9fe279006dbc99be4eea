@@ -1,0 +1,51 @@
+f8e49d335235bbea9de125de2be3f9af
+/* istanbul ignore next */
+function cov_mbf8qvdxj() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\auteur\\auteur-detail.component.html";
+  var hash = "1f0e556cb35c4fab6aca8b83dc0f8d41585595cb";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\auteur\\auteur-detail.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 1320
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "1f0e556cb35c4fab6aca8b83dc0f8d41585595cb"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_mbf8qvdxj = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_mbf8qvdxj();
+cov_mbf8qvdxj().s[0]++;
+module.exports = "<div class=\"row justify-content-center\">\n    <div class=\"col-8\">\n        <div *ngIf=\"auteur\">\n            <h2><span>Auteur</span> {{ auteur.id }}</h2>\n\n            <hr>\n\n            <jhi-alert-error></jhi-alert-error>\n\n            <dl class=\"row-md jh-entity-details\">\n                <dt><span>Auteur</span></dt>\n                <dd>\n                    <span>{{ auteur.auteur }}</span>\n                </dd>\n                <dt><span>Livre</span></dt>\n                <dd>\n                    <span *ngFor=\"let livre of auteur.livres; let last = last\">\n                        <a [routerLink]=\"['/livre', livre?.id, 'view']\">{{ livre.titre }}</a>{{ last ? '' : ', ' }}\n                    </span>\n                </dd>\n            </dl>\n\n            <button type=\"submit\"\n                    (click)=\"previousState()\"\n                    class=\"btn btn-info\">\n                <fa-icon icon=\"arrow-left\"></fa-icon>&nbsp;<span>Back</span>\n            </button>\n\n            <button type=\"button\"\n                    [routerLink]=\"['/auteur', auteur.id, 'edit']\"\n                    class=\"btn btn-primary\">\n                <fa-icon icon=\"pencil-alt\"></fa-icon>&nbsp;<span>Edit</span>\n            </button>\n        </div>\n    </div>\n</div>\n";
