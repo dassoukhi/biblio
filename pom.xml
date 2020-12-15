@@ -142,9 +142,6 @@
         <junit.itReportFolder>${project.testresult.directory}/integrationTest</junit.itReportFolder>
         <!-- jhipster-needle-maven-property -->
         <!-- jhipster-needle-maven-property -->
-        <sonar.projectKey>dassoukhi-1_biblio</sonar.projectKey>
-        <sonar.organization>dassoukhi-1</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
 
     <dependencyManagement>
