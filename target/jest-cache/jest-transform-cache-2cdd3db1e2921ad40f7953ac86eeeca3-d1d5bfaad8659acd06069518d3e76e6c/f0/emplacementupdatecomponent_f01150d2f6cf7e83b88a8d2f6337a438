@@ -1,0 +1,51 @@
+d244a20a697276ffc6af9378f11c9749
+/* istanbul ignore next */
+function cov_8x7hci53g() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\emplacement\\emplacement-update.component.html";
+  var hash = "a612401227922d0a0716e694a2aa1575566b5d3a";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\emplacement\\emplacement-update.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 2050
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "a612401227922d0a0716e694a2aa1575566b5d3a"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_8x7hci53g = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_8x7hci53g();
+cov_8x7hci53g().s[0]++;
+module.exports = "<div class=\"row justify-content-center\">\r\n    <div class=\"col-8\">\r\n        <form name=\"editForm\" role=\"form\" novalidate (ngSubmit)=\"save()\" [formGroup]=\"editForm\">\r\n            <h2 id=\"jhi-emplacement-heading\">Create or edit a Emplacement</h2>\r\n\r\n            <div>\r\n                <jhi-alert-error></jhi-alert-error>\r\n\r\n                <div class=\"form-group\" [hidden]=\"!editForm.get('id')!.value\">\r\n                    <label for=\"id\">ID</label>\r\n                    <input type=\"text\" class=\"form-control\" id=\"id\" name=\"id\" formControlName=\"id\" readonly />\r\n                </div>\r\n\r\n                <div class=\"form-group\">\r\n                    <label class=\"form-control-label\" for=\"field_nomEplacement\">Nom Eplacement</label>\r\n                    <input type=\"text\" class=\"form-control\" name=\"nomEplacement\" id=\"field_nomEplacement\"\r\n                           formControlName=\"nomEplacement\"/>\r\n                    <div *ngIf=\"editForm.get('nomEplacement')!.invalid && (editForm.get('nomEplacement')!.dirty || editForm.get('nomEplacement')!.touched)\">\r\n                        <small class=\"form-text text-danger\"\r\n                               *ngIf=\"editForm.get('nomEplacement')?.errors?.required\">\r\n                        This field is required.\r\n                        </small>\r\n                    </div>\r\n                </div>\r\n            </div>\r\n\r\n            <div>\r\n                <button type=\"button\" id=\"cancel-save\" class=\"btn btn-secondary\" (click)=\"previousState()\">\r\n                    <fa-icon icon=\"ban\"></fa-icon>&nbsp;<span>Cancel</span>\r\n                </button>\r\n\r\n                <button type=\"submit\" id=\"save-entity\" [disabled]=\"editForm.invalid || isSaving\" class=\"btn btn-primary\">\r\n                    <fa-icon icon=\"save\"></fa-icon>&nbsp;<span>Save</span>\r\n                </button>\r\n            </div>\r\n        </form>\r\n    </div>\r\n</div>\r\n";

@@ -1,0 +1,51 @@
+93a87d3a9663c66f4a97b8005787255b
+/* istanbul ignore next */
+function cov_uom6qwbk0() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\theme\\theme.component.html";
+  var hash = "fa7cc46b7e50014cb92613e0039e6328073dd749";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\theme\\theme.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 3156
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "fa7cc46b7e50014cb92613e0039e6328073dd749"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_uom6qwbk0 = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_uom6qwbk0();
+cov_uom6qwbk0().s[0]++;
+module.exports = "<div>\r\n    <h2 id=\"page-heading\">\r\n        <span>Themes</span>\r\n\r\n        <button id=\"jh-create-entity\" class=\"btn btn-primary float-right jh-create-entity create-theme\" [routerLink]=\"['/theme/new']\">\r\n            <fa-icon icon=\"plus\"></fa-icon>\r\n            <span>\r\n            Create a new Theme\r\n            </span>\r\n        </button>\r\n    </h2>\r\n\r\n    <jhi-alert-error></jhi-alert-error>\r\n\r\n    <jhi-alert></jhi-alert>\r\n\r\n    <div class=\"alert alert-warning\" id=\"no-result\" *ngIf=\"themes?.length === 0\">\r\n        <span>No themes found</span>\r\n    </div>\r\n\r\n    <div class=\"table-responsive\" id=\"entities\" *ngIf=\"themes && themes.length > 0\">\r\n        <table class=\"table table-striped\" aria-describedby=\"page-heading\">\r\n            <thead>\r\n                <tr>\r\n                    <th scope=\"col\" ><span>ID</span></th>\r\n                    <th scope=\"col\" ><span>Theme</span></th>\r\n                    <th scope=\"col\" ><span>Livre</span></th>\r\n                    <th scope=\"col\"></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let theme of themes ;trackBy: trackId\">\r\n                    <td><a [routerLink]=\"['/theme', theme.id, 'view']\">{{ theme.id }}</a></td>\r\n                    <td>{{ theme.theme }}</td>\r\n                    <td>\r\n                        <span *ngFor=\"let livre of theme.livres; let last = last\">\r\n                            <a class=\"form-control-static\" [routerLink]=\"['/livre', livre?.id, 'view']\">{{ livre.titre }}</a>{{ last ? '' : ', ' }}\r\n                        </span>\r\n                    </td>\r\n                    <td class=\"text-right\">\r\n                        <div class=\"btn-group\">\r\n                            <button type=\"submit\"\r\n                                    [routerLink]=\"['/theme', theme.id, 'view']\"\r\n                                    class=\"btn btn-info btn-sm\">\r\n                                <fa-icon icon=\"eye\"></fa-icon>\r\n                                <span class=\"d-none d-md-inline\">View</span>\r\n                            </button>\r\n\r\n                            <button type=\"submit\"\r\n                                    [routerLink]=\"['/theme', theme.id, 'edit']\"\r\n                                    class=\"btn btn-primary btn-sm\">\r\n                                <fa-icon icon=\"pencil-alt\"></fa-icon>\r\n                                <span class=\"d-none d-md-inline\">Edit</span>\r\n                            </button>\r\n\r\n                            <button type=\"submit\" (click)=\"delete(theme)\"\r\n                                    class=\"btn btn-danger btn-sm\">\r\n                                <fa-icon icon=\"times\"></fa-icon>\r\n                                <span class=\"d-none d-md-inline\">Delete</span>\r\n                            </button>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n";

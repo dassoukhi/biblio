@@ -1,0 +1,51 @@
+bee909ae4326bcbb409c51dc8cfb511d
+/* istanbul ignore next */
+function cov_21kk9rhq4w() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\admin\\configuration\\configuration.component.html";
+  var hash = "ed06a206b8915216346248d701234add40d01fab";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\admin\\configuration\\configuration.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 2527
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "ed06a206b8915216346248d701234add40d01fab"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_21kk9rhq4w = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_21kk9rhq4w();
+cov_21kk9rhq4w().s[0]++;
+module.exports = "<div *ngIf=\"allBeans\">\r\n    <h2 id=\"configuration-page-heading\">Configuration</h2>\r\n\r\n    <span>Filter (by prefix)</span> <input type=\"text\" [(ngModel)]=\"beansFilter\" (ngModelChange)=\"filterAndSortBeans()\" class=\"form-control\">\r\n\r\n    <h3 id=\"spring-configuration\">Spring configuration</h3>\r\n\r\n    <table class=\"table table-striped table-bordered table-responsive d-table\" aria-describedby=\"spring-configuration\">\r\n        <thead>\r\n            <tr jhiSort predicate=\"prefix\" [(ascending)]=\"beansAscending\" [callback]=\"filterAndSortBeans.bind(this)\">\r\n                <th jhiSortBy=\"prefix\" scope=\"col\" class=\"w-40\"><span>Prefix</span> <fa-icon icon=\"sort\"></fa-icon></th>\r\n                <th scope=\"col\" class=\"w-60\"><span>Properties</span></th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n            <tr *ngFor=\"let bean of beans\">\r\n                <td><span>{{ bean.prefix }}</span></td>\r\n                <td>\r\n                    <div class=\"row\" *ngFor=\"let property of bean.properties | keys\">\r\n                        <div class=\"col-md-4\">{{ property.key }}</div>\r\n                        <div class=\"col-md-8\">\r\n                            <span class=\"float-right badge-secondary break\">{{ property.value | json }}</span>\r\n                        </div>\r\n                    </div>\r\n                </td>\r\n            </tr>\r\n        </tbody>\r\n    </table>\r\n\r\n    <div *ngFor=\"let propertySource of propertySources; let i = index\">\r\n        <h4 [id]=\"'property-source-' + i\"><span>{{ propertySource.name }}</span></h4>\r\n\r\n        <table class=\"table table-sm table-striped table-bordered table-responsive d-table\" [attr.aria-describedby]=\"'property-source-' + i\"><!-- //NOSONAR -->\r\n            <thead>\r\n                <tr>\r\n                    <th scope=\"col\" class=\"w-40\">Property</th>\r\n                    <th scope=\"col\" class=\"w-60\">Value</th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let property of propertySource.properties | keys\">\r\n                    <td class=\"break\">{{ property.key }}</td>\r\n                    <td class=\"break\">\r\n                        <span class=\"float-right badge-secondary break\">{{ property.value.value }}</span>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n";

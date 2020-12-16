@@ -1,0 +1,51 @@
+55cafe4e180c72663691140a7a5fdc37
+/* istanbul ignore next */
+function cov_2g2dfe77jt() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\auteur\\auteur.component.html";
+  var hash = "75598980c96f0e5ce2bf07fcc89a19d4cb46a70d";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\entities\\auteur\\auteur.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 3178
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "75598980c96f0e5ce2bf07fcc89a19d4cb46a70d"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_2g2dfe77jt = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_2g2dfe77jt();
+cov_2g2dfe77jt().s[0]++;
+module.exports = "<div>\r\n    <h2 id=\"page-heading\">\r\n        <span>Auteurs</span>\r\n\r\n        <button id=\"jh-create-entity\" class=\"btn btn-primary float-right jh-create-entity create-auteur\" [routerLink]=\"['/auteur/new']\">\r\n            <fa-icon icon=\"plus\"></fa-icon>\r\n            <span>\r\n            Create a new Auteur\r\n            </span>\r\n        </button>\r\n    </h2>\r\n\r\n    <jhi-alert-error></jhi-alert-error>\r\n\r\n    <jhi-alert></jhi-alert>\r\n\r\n    <div class=\"alert alert-warning\" id=\"no-result\" *ngIf=\"auteurs?.length === 0\">\r\n        <span>No auteurs found</span>\r\n    </div>\r\n\r\n    <div class=\"table-responsive\" id=\"entities\" *ngIf=\"auteurs && auteurs.length > 0\">\r\n        <table class=\"table table-striped\" aria-describedby=\"page-heading\">\r\n            <thead>\r\n                <tr>\r\n                    <th scope=\"col\" ><span>ID</span></th>\r\n                    <th scope=\"col\" ><span>Auteur</span></th>\r\n                    <th scope=\"col\" ><span>Livre</span></th>\r\n                    <th scope=\"col\"></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n                <tr *ngFor=\"let auteur of auteurs ;trackBy: trackId\">\r\n                    <td><a [routerLink]=\"['/auteur', auteur.id, 'view']\">{{ auteur.id }}</a></td>\r\n                    <td>{{ auteur.auteur }}</td>\r\n                    <td>\r\n                        <span *ngFor=\"let livre of auteur.livres; let last = last\">\r\n                            <a class=\"form-control-static\" [routerLink]=\"['/livre', livre?.id, 'view']\">{{ livre.titre }}</a>{{ last ? '' : ', ' }}\r\n                        </span>\r\n                    </td>\r\n                    <td class=\"text-right\">\r\n                        <div class=\"btn-group\">\r\n                            <button type=\"submit\"\r\n                                    [routerLink]=\"['/auteur', auteur.id, 'view']\"\r\n                                    class=\"btn btn-info btn-sm\">\r\n                                <fa-icon icon=\"eye\"></fa-icon>\r\n                                <span class=\"d-none d-md-inline\">View</span>\r\n                            </button>\r\n\r\n                            <button type=\"submit\"\r\n                                    [routerLink]=\"['/auteur', auteur.id, 'edit']\"\r\n                                    class=\"btn btn-primary btn-sm\">\r\n                                <fa-icon icon=\"pencil-alt\"></fa-icon>\r\n                                <span class=\"d-none d-md-inline\">Edit</span>\r\n                            </button>\r\n\r\n                            <button type=\"submit\" (click)=\"delete(auteur)\"\r\n                                    class=\"btn btn-danger btn-sm\">\r\n                                <fa-icon icon=\"times\"></fa-icon>\r\n                                <span class=\"d-none d-md-inline\">Delete</span>\r\n                            </button>\r\n                        </div>\r\n                    </td>\r\n                </tr>\r\n            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n";

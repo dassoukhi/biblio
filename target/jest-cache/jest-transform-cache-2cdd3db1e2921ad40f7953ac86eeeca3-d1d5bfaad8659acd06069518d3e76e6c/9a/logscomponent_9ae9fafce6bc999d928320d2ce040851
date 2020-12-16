@@ -1,0 +1,51 @@
+3ca54c7b37a5a3995b35d0a16c20f48c
+/* istanbul ignore next */
+function cov_1z8yo8fa7y() {
+  var path = "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\admin\\logs\\logs.component.html";
+  var hash = "f34fc83da2f257862e3a30717524878a66955ef4";
+  var global = new Function("return this")();
+  var gcv = "__coverage__";
+  var coverageData = {
+    path: "C:\\Users\\Dass\\Desktop\\Master1_YNOV\\DevLogiciel\\biblio\\src\\main\\webapp\\app\\admin\\logs\\logs.component.html",
+    statementMap: {
+      "0": {
+        start: {
+          line: 1,
+          column: 0
+        },
+        end: {
+          line: 1,
+          column: 2024
+        }
+      }
+    },
+    fnMap: {},
+    branchMap: {},
+    s: {
+      "0": 0
+    },
+    f: {},
+    b: {},
+    inputSourceMap: null,
+    _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
+    hash: "f34fc83da2f257862e3a30717524878a66955ef4"
+  };
+  var coverage = global[gcv] || (global[gcv] = {});
+
+  if (!coverage[path] || coverage[path].hash !== hash) {
+    coverage[path] = coverageData;
+  }
+
+  var actualCoverage = coverage[path];
+  {
+    // @ts-ignore
+    cov_1z8yo8fa7y = function () {
+      return actualCoverage;
+    };
+  }
+  return actualCoverage;
+}
+
+cov_1z8yo8fa7y();
+cov_1z8yo8fa7y().s[0]++;
+module.exports = "<div class=\"table-responsive\" *ngIf=\"loggers\">\r\n    <h2 id=\"logs-page-heading\">Logs</h2>\r\n\r\n    <p>There are {{ loggers.length }} loggers.</p>\r\n\r\n    <span>Filter</span> <input type=\"text\" [(ngModel)]=\"filter\" class=\"form-control\">\r\n\r\n    <table class=\"table table-sm table-striped table-bordered\" aria-describedby=\"logs-page-heading\">\r\n        <thead>\r\n            <tr title=\"click to order\">\r\n                <th scope=\"col\" (click)=\"orderProp = 'name'; reverse=!reverse\"><span>Name</span></th>\r\n                <th scope=\"col\" (click)=\"orderProp = 'level'; reverse=!reverse\"><span>Level</span></th>\r\n            </tr>\r\n        </thead>\r\n\r\n        <tr *ngFor=\"let logger of (loggers | pureFilter:filter:'name' | orderBy:orderProp:reverse)\">\r\n            <td><small>{{ logger.name | slice:0:140 }}</small></td>\r\n            <td>\r\n                <button (click)=\"changeLevel(logger.name, 'TRACE')\" [ngClass]=\"(logger.level=='TRACE') ? 'btn-primary' : 'btn-light'\" class=\"btn btn-sm\">TRACE</button>\r\n                <button (click)=\"changeLevel(logger.name, 'DEBUG')\" [ngClass]=\"(logger.level=='DEBUG') ? 'btn-success' : 'btn-light'\" class=\"btn btn-sm\">DEBUG</button>\r\n                <button (click)=\"changeLevel(logger.name, 'INFO')\" [ngClass]=\"(logger.level=='INFO') ? 'btn-info' : 'btn-light'\" class=\"btn btn-sm\">INFO</button>\r\n                <button (click)=\"changeLevel(logger.name, 'WARN')\" [ngClass]=\"(logger.level=='WARN') ? 'btn-warning' : 'btn-light'\" class=\"btn btn-sm\">WARN</button>\r\n                <button (click)=\"changeLevel(logger.name, 'ERROR')\" [ngClass]=\"(logger.level=='ERROR') ? 'btn-danger' : 'btn-light'\" class=\"btn btn-sm\">ERROR</button>\r\n                <button (click)=\"changeLevel(logger.name, 'OFF')\" [ngClass]=\"(logger.level=='OFF') ? 'btn-secondary' : 'btn-light'\" class=\"btn btn-sm\">OFF</button>\r\n            </td>\r\n        </tr>\r\n    </table>\r\n</div>\r\n";
