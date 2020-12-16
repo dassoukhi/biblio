@@ -51,16 +51,38 @@ jobs:
                       echo No SONAR_TOKEN, skipping...
                   fi
             - name: Package application
-              continue-on-error: true
-              env:
-                maven-local-repo-path: ${{secrets.JFROG_OSS_REPO_SNAPSHOTS }}
-                maven-repo-server-id: snapshots
-                maven-repo-server-username: ${{ secrets.JFROG_OSS_REPO_USER }}
-                maven-repo-server-password: ${{ secrets.JFROG_OSS_REPO_PASS }}
               run: |
+                  java -version
+                  echo "-------------------PREVIOUS SETTINGS.xml------------------------------"
                   cat ~/.m2/settings.xml
-                  ./mvnw -ntp package deploy -Pprod -DskipTests
-                
+                  echo "-------------------PREVIOUS SETTINGS.xml------------------------------"
+                  mv src/main/settings/settings.myartifactory.xml ~/.m2/settings.xml
+                  echo "-------------------NEW SETTINGS.xml------------------------------"
+                  cat ~/.m2/settings.xml
+                  echo "-------------------NEW SETTINGS.xml------------------------------"
+                  mvn -ntp package deploy -Pprod -DskipTests
+ 
+  
+  
+    #https://github.com/marketplace/actions/mvn-cmd
+    #https://github.com/marketplace/actions/action-maven-deploy
+    jobPublish:      
+      name: Job generating setting for mv deploy
+      #needs: pipeline
+      runs-on: ubuntu-20.04
+      steps:
+        - name: Generate Settings	
+          uses: qcastel/github-actions-maven/actions/maven@master
+          with:
+            maven-local-repo-path: ${{ secrets.JFROG_OSS_REPO_SNAPSHOTS }}
+            maven-repo-server-id: snapshots
+            maven-repo-server-username: ${{ secrets.JFROG_OSS_REPO_USER }}
+            maven-repo-server-password: ${{ secrets.JFROG_OSS_REPO_PASS }}
+            #maven-args: "./mvnw -ntp package deploy -Pprod -DskipTests"
+        - name: Publish artefact
+          run: |
+            cat ~/.m2/settings.xml
+            mvn -ntp package deploy -Pprod -DskipTests
     
     #https://github.com/marketplace/actions/deploy-to-heroku  
     jobdeploy:
