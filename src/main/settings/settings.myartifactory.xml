@@ -5,8 +5,13 @@
  <servers>
     <server>
       <id>snapshots</id>
-      <username>bilonjea</username>
-      <password>Lr5@$d4F4#A7wE8c#w</password>
+      <username>dassbosch50@gmail.com</username>
+      <password>Dassoukhi1@</password>
+    </server>
+    <server>
+      <id>central</id>
+      <username>dassbosch50@gmail.com</username>
+      <password>Dassoukhi1@</password>
     </server>
     <server>
       <id>gpg.passphrase</id>
