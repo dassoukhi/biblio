@@ -53,7 +53,7 @@ jobs:
             - name: Package application
               continue-on-error: true
               env:
-                #maven-local-repo-path: ${{secrets.JFROG_OSS_REPO_SNAPSHOTS }}
+                maven-local-repo-path: ${{secrets.JFROG_OSS_REPO_SNAPSHOTS }}
                 maven-repo-server-id: snapshots
                 maven-repo-server-username: ${{ secrets.JFROG_OSS_REPO_USER }}
                 maven-repo-server-password: ${{ secrets.JFROG_OSS_REPO_PASS }}
