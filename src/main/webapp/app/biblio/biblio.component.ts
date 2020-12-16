@@ -8,9 +8,8 @@ import { ILivre } from 'app/shared/model/livre.model';
 import { BiblioService } from './biblio.service';
 import { IAuteur } from '../shared/model/auteur.model';
 import { IExemplaire } from '../shared/model/exemplaire.model';
-import {AuteurService} from '../entities/auteur/auteur.service';
-import {ExemplaireService} from '../entities/exemplaire/exemplaire.service';
-
+import { AuteurService } from '../entities/auteur/auteur.service';
+import { ExemplaireService } from '../entities/exemplaire/exemplaire.service';
 
 @Component({
   selector: 'jhi-livre',
@@ -28,14 +27,18 @@ export class BiblioComponent implements OnInit {
   public titre?: string;
   // list : any[] = [];
 
-  constructor(protected livreService: BiblioService,protected auteurSevice: AuteurService, protected exemplaireService: ExemplaireService,protected eventManager: JhiEventManager, protected modalService: NgbModal) {}
+  constructor(
+    protected livreService: BiblioService,
+    protected auteurSevice: AuteurService,
+    protected exemplaireService: ExemplaireService,
+    protected eventManager: JhiEventManager,
+    protected modalService: NgbModal
+  ) {}
 
   loadAll(): void {
-   
     this.livreService.query().subscribe((res: HttpResponse<ILivre[]>) => (this.livres = res.body || []));
     this.auteurSevice.query().subscribe((res: HttpResponse<IAuteur[]>) => (this.auteurs = res.body || []));
     this.exemplaireService.query().subscribe((res: HttpResponse<IExemplaire[]>) => (this.exemplaires = res.body || []));
-    
   }
 
   parAuteur(): void {
@@ -47,41 +50,28 @@ export class BiblioComponent implements OnInit {
   }
 
   getAuteur(id?: number): string {
-    if(this.auteurs)
-    {
-      
-       
+    if (this.auteurs) {
       for (let i = 0; i < this.auteurs.length; i++) {
-        if(this.auteurs[i].livres)
-        {
+        if (this.auteurs[i].livres) {
           const tab = this.auteurs[i].livres?.find(li => li.id === id);
-          if(tab)
-          {
+          if (tab) {
             // alert(this.auteurs[i].auteur || "rien");
-           return this.auteurs[i].auteur || "";
-              
+            return this.auteurs[i].auteur || '';
           }
-         
-          
         }
-         
-        
       }
     }
-    return  "failed" + id;
+    return '';
   }
 
-
-  getExem(id?: number): string{
-    if(this.exemplaires)
-    {
-      const tab = this.exemplaires.filter(exem => exem.livre?.id === id && exem.disponibilite ===true);
-      if(tab)
-      {
-        return tab.length > 0 ? "Oui" : "Non" ;
+  getExem(id?: number): string {
+    if (this.exemplaires) {
+      const tab = this.exemplaires.filter(exem => exem.livre?.id === id && exem.disponibilite === true);
+      if (tab) {
+        return tab.length > 0 ? 'Oui' : 'Non';
       }
     }
-    return "";
+    return '';
   }
 
   loadAllParTheme(): void {
@@ -103,7 +93,6 @@ export class BiblioComponent implements OnInit {
   ngOnInit(): void {
     this.loadAll();
     this.registerChangeInLivres();
-
   }
 
   trackId(index: number, item: ILivre): number {
