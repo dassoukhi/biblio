@@ -34,7 +34,7 @@ Biblio,com.mycompany.myapp.service,UserService,4,612,7,15,1,163,7,32,0,28
 Biblio,com.mycompany.myapp.service.dto,UserDTO,0,242,0,0,0,60,0,29,0,29
 Biblio,com.mycompany.myapp.service.dto,PasswordChangeDTO,0,26,0,0,0,12,0,6,0,6
 Biblio,com.mycompany.myapp.aop.logging,LoggingAspect,116,0,10,0,27,0,11,0,6,0
-Biblio,com.mycompany.myapp.config,CacheConfiguration,0,64,0,2,0,21,0,8,0,7
+Biblio,com.mycompany.myapp.config,CacheConfiguration,8,56,0,2,4,17,2,6,2,5
 Biblio,com.mycompany.myapp.config,LoggingConfiguration,11,51,5,5,3,14,5,1,0,1
 Biblio,com.mycompany.myapp.config,CloudDatabaseConfiguration,15,0,0,0,4,0,2,0,2,0
 Biblio,com.mycompany.myapp.config,LocaleConfiguration,0,24,0,0,0,8,0,3,0,3
