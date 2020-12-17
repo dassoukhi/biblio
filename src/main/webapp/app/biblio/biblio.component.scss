@@ -2,8 +2,15 @@
   height: 500;
   background-color: white;
   position: absolute;
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgb(114, 114, 114);
+  border-radius: 20px;
 }
 
+#Content {
+  height: 1200px;
+}
 .divbutton {
   margin-left: 5%;
 }

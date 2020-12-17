@@ -13,7 +13,7 @@
             <button type="button" (click)="loadLivre()" class="btn btn-outline-secondary">search by title</button>
         </div>
     </div>
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
     <div id="Content" class="col-md-7">
         <div *ngIf="on && livres" class="ContentRightAff table-responsive">
             <table class="table table-striped" aria-describedby="page-heading">
@@ -35,19 +35,21 @@
                         <td class="text-right">
                             <div class="btn-group">
 
-                                <button type="submit"
-                                        [routerLink]="['/livre', livre.id, 'view']"
-                                        class="btn btn-info btn-sm">
-                                    <fa-icon icon="eye"></fa-icon>
-                                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
-                                </button>
-    
-                              
-                                <button type="submit"
-                                        [routerLink]="['/livre', livre.id, 'view']"
+                                <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
+                                        [routerLink]="['/biblio/livreadd', livre.id]"
                                         class="btn btn-success btn-sm">
                                     <fa-icon icon="eye"></fa-icon>
-                                    <span class="d-none d-md-inline">Reserver</span>
+                                    <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                                <button *ngIf="getExem(livre.id) === 'Non'" type="submit"
+                                        class="btn btn-secondary disabled">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                                <button *ngIf="getExem(livre.id) === 'retour'" type="submit"
+                                        class="btn btn-danger">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Retourner</span>
                                 </button>
                             </div>
                         </td>
@@ -76,7 +78,7 @@
                             <div class="btn-group">
                                 
                                 <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
-                                        [routerLink]="['/livre', livre.id, 'view']"
+                                        [routerLink]="['/biblio/livreadd', livre.id]"
                                         class="btn btn-success btn-sm">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
@@ -85,6 +87,11 @@
                                         class="btn btn-secondary disabled">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                                <button *ngIf="getExem(livre.id) === 'retour'" type="submit"
+                                        class="btn btn-danger">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Retourner</span>
                                 </button>
                             </div>
                         </td>
@@ -113,7 +120,7 @@
                         <td class="text-right">
                             <div class="btn-group">
                                 <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
-                                [routerLink]="['/livre', livre.id, 'view']"
+                                [routerLink]="['/biblio/livreadd', livre.id]"
                                 class="btn btn-success btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline">Emprunter</span>
@@ -122,6 +129,11 @@
                                     class="btn btn-secondary disabled">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline">Emprunter</span>
+                            </button>
+                            <button *ngIf="getExem(livre.id) === 'retour'" type="submit"
+                                    class="btn btn-danger">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">Retourner</span>
                             </button>
                             </div>
                         </td>

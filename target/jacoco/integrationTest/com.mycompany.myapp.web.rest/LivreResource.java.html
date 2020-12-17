@@ -116,5 +116,25 @@ public class LivreResource {
 <span class="fc" id="L116">        livreRepository.deleteById(id);</span>
 <span class="fc" id="L117">        return ResponseEntity.noContent().headers(HeaderUtil.createEntityDeletionAlert(applicationName, false, ENTITY_NAME, id.toString())).build();</span>
     }
+
+    @GetMapping(&quot;/livre_byTheme&quot;)
+    public List&lt;Livre&gt; getAllTLivreByTheme(@RequestParam(required = false, defaultValue = &quot;&quot;) String theme) {
+<span class="nc" id="L122">        log.debug(&quot;REST request to get all Livres by theme&quot;);</span>
+<span class="nc" id="L123">        return livreRepository.findAllByTheme(theme);</span>
+    }
+    
+    
+    @GetMapping(&quot;/livre_by_auteur&quot;)
+    public List&lt;Livre&gt; getAllTLivreByAuteur(@RequestParam(required = false, defaultValue = &quot;&quot;) String auteur) {
+<span class="nc" id="L129">        log.debug(&quot;REST request to get all Livres by auteur&quot;);</span>
+<span class="nc" id="L130">        return livreRepository.findAllByAuteur(auteur);</span>
+    }
+    
+    @GetMapping(&quot;/livres_by_titre/{titre}&quot;)
+    public ResponseEntity&lt;Livre&gt; getLivreByTitre(@PathVariable String titre) {
+<span class="nc" id="L135">        log.debug(&quot;REST request to get Livre : {}&quot;, titre);</span>
+<span class="nc" id="L136">        Optional&lt;Livre&gt; livre = livreRepository.findByTitre(titre);</span>
+<span class="nc" id="L137">        return ResponseUtil.wrapOrNotFound(livre);</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

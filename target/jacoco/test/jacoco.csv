@@ -64,7 +64,7 @@ Biblio,com.mycompany.myapp.web.rest,AuteurResource,133,0,4,0,26,0,8,0,6,0
 Biblio,com.mycompany.myapp.web.rest,AccountResource,209,0,24,0,49,0,24,0,12,0
 Biblio,com.mycompany.myapp.web.rest,EmplacementResource,133,0,4,0,26,0,8,0,6,0
 Biblio,com.mycompany.myapp.web.rest,AccountResource.AccountResourceException,4,0,0,0,2,0,1,0,1,0
-Biblio,com.mycompany.myapp.web.rest,LivreResource,133,0,4,0,26,0,8,0,6,0
+Biblio,com.mycompany.myapp.web.rest,LivreResource,164,0,4,0,33,0,11,0,9,0
 Biblio,com.mycompany.myapp.web.rest,ExemplaireResource,133,0,4,0,26,0,8,0,6,0
 Biblio,com.mycompany.myapp.web.rest,UserResource,277,0,16,0,43,0,17,0,9,0
 Biblio,com.mycompany.myapp.web.rest,UserJWTController,67,0,2,0,13,0,3,0,2,0
