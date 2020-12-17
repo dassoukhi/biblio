@@ -1,16 +1,16 @@
 <div class="row">
     <div id="Content" class="col-md-3">
         <div>
-            <input type="text" [(ngModel)]="titre" class="form-control" id="searchbar" placeholder="enter title, autor, or theme">
+            <input type="text" [(ngModel)]="titre" class="form-control" id="searchbar" placeholder="Entrez titre, auteur, ou thème">
         </div>
 
         <div class="divbutton">
             <br/>
-            <button type="button" (click)="parAuteur()" class="btn btn-outline-secondary">search by autor</button>
+            <button type="button" (click)="parAuteur()" class="btn btn-success">Recherche par auteur</button>
             <br/>
-            <button type="button" (click)="loadAllParTheme()" class="btn btn-outline-secondary">search by theme</button>
+            <button type="button" (click)="loadAllParTheme()" class="btn btn-success">Recherche par thème</button>
             <br/>
-            <button type="button" (click)="loadLivre()" class="btn btn-outline-secondary">search by title</button>
+            <button type="button" (click)="loadLivre()" class="btn btn-success">Recherche par titre</button>
         </div>
     </div>
     <div class="col-md-1"></div>
@@ -31,22 +31,24 @@
                         <td><a [routerLink]="['/livre', livre.id, 'view']">{{ livre.titre }}</a></td>
                         <td>{{ livre.description }}</td>
                         <td>{{ getAuteur(livre.id) }}</td>
-                        <td>{{ getExem(livre.id) }}</td>
+                        <td>{{ isEmprunt(livre.id)? "À rendre": getExem(livre.id) }}</td>
                         <td class="text-right">
                             <div class="btn-group">
-
-                                <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
+                                
+                                <button *ngIf="isEmprunt(livre.id) === 0 && getExem(livre.id) === 'Oui'" type="submit"
                                         [routerLink]="['/biblio/livreadd', livre.id]"
                                         class="btn btn-success btn-sm">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
                                 </button>
-                                <button *ngIf="getExem(livre.id) === 'Non'" type="submit"
+                                <button *ngIf="isEmprunt(livre.id) === 0 && getExem(livre.id) === 'Non'" type="submit"
                                         class="btn btn-secondary disabled">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
                                 </button>
-                                <button *ngIf="getExem(livre.id) === 'retour'" type="submit"
+                                <button *ngIf="isEmprunt(livre.id) !== 0 " type="submit"
+                                        [routerLink]="['/biblio/search']"
+                                        (click)="rendre(isEmprunt(livre.id))"
                                         class="btn btn-danger">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Retourner</span>
@@ -73,22 +75,24 @@
                         <td><a [routerLink]="['/livre', livre.id, 'view']">{{ livre.titre }}</a></td>
                         <td>{{ livre.description }}</td>
                         <td>{{ getAuteur(livre.id) }}</td>
-                        <td>{{ getExem(livre.id) }}</td>
+                        <td>{{ isEmprunt(livre.id)? "À rendre": getExem(livre.id) }}</td>
                         <td class="text-right">
                             <div class="btn-group">
                                 
-                                <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
+                                <button *ngIf="isEmprunt(livre.id) === 0 && getExem(livre.id) === 'Oui'" type="submit"
                                         [routerLink]="['/biblio/livreadd', livre.id]"
                                         class="btn btn-success btn-sm">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
                                 </button>
-                                <button *ngIf="getExem(livre.id) === 'Non'" type="submit"
+                                <button *ngIf="isEmprunt(livre.id) === 0 && getExem(livre.id) === 'Non'" type="submit"
                                         class="btn btn-secondary disabled">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Emprunter</span>
                                 </button>
-                                <button *ngIf="getExem(livre.id) === 'retour'" type="submit"
+                                <button *ngIf="isEmprunt(livre.id) !== 0 " type="submit"
+                                        [routerLink]="['/biblio/search']"
+                                        (click)="rendre(isEmprunt(livre.id))"
                                         class="btn btn-danger">
                                     <fa-icon icon="eye"></fa-icon>
                                     <span class="d-none d-md-inline">Retourner</span>
@@ -116,30 +120,42 @@
                         <td><a [routerLink]="['/livre', livre.id, 'view']">{{ livre.titre }}</a></td>
                         <td>{{ livre.description }}</td>
                         <td>{{ getAuteur(livre.id) }}</td>
-                        <td>{{ getExem(livre.id) }}</td>
+                        <td>{{ isEmprunt(livre.id)? "À rendre": getExem(livre.id) }}</td>
                         <td class="text-right">
                             <div class="btn-group">
-                                <button *ngIf="getExem(livre.id) === 'Oui'" type="submit"
-                                [routerLink]="['/biblio/livreadd', livre.id]"
-                                class="btn btn-success btn-sm">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline">Emprunter</span>
-                            </button>
-                            <button *ngIf="getExem(livre.id) === 'Non'" type="submit"
-                                    class="btn btn-secondary disabled">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline">Emprunter</span>
-                            </button>
-                            <button *ngIf="getExem(livre.id) === 'retour'" type="submit"
-                                    class="btn btn-danger">
-                                <fa-icon icon="eye"></fa-icon>
-                                <span class="d-none d-md-inline">Retourner</span>
-                            </button>
+                                
+                                <button *ngIf="isEmprunt(livre.id) === 0 && getExem(livre.id) === 'Oui'" type="submit"
+                                        [routerLink]="['/biblio/livreadd', livre.id]"
+                                        class="btn btn-success btn-sm">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                                <button *ngIf="isEmprunt(livre.id) === 0 && getExem(livre.id) === 'Non'" type="submit"
+                                        class="btn btn-secondary disabled">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Emprunter</span>
+                                </button>
+                                <button *ngIf="isEmprunt(livre.id) !== 0 " type="submit"
+                                        [routerLink]="['/biblio/search']"
+                                        (click)="rendre(isEmprunt(livre.id))"
+                                        class="btn btn-danger">
+                                    <fa-icon icon="eye"></fa-icon>
+                                    <span class="d-none d-md-inline">Retourner</span>
+                                </button>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            
         </div>
+        
     </div>
+    <button  type="submit"
+                [routerLink]="['/']"
+                class="d-flex justify-content-lg-start"
+                class="btn btn-secondary">
+            <fa-icon icon="eye"></fa-icon>
+            <span class="d-none d-md-inline" >Go back</span>
+        </button>
 </div>

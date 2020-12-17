@@ -43,7 +43,7 @@ export class AccountService {
         }),
         tap((account: Account | null) => {
           this.authenticate(account);
-
+          this.router.navigateByUrl('biblio/search');
           if (account) {
             this.navigateToStoredUrl();
           }
@@ -73,10 +73,11 @@ export class AccountService {
   private navigateToStoredUrl(): void {
     // previousState can be set in the authExpiredInterceptor and in the userRouteAccessService
     // if login is successful, go to stored previousState and clear previousState
+
     const previousUrl = this.stateStorageService.getUrl();
     if (previousUrl) {
       this.stateStorageService.clearUrl();
-      this.router.navigateByUrl(previousUrl);
+      this.router.navigateByUrl('biblio/search');
     }
   }
 }

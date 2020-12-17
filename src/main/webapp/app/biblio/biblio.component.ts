@@ -6,12 +6,12 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute } from '@angular/router';
 
 import { ILivre } from 'app/shared/model/livre.model';
-import { IUser, User } from 'app/core/user/user.model';
-import { IEmprunt, Emprunt } from 'app/shared/model/emprunt.model';
+import { IUser } from 'app/core/user/user.model';
+import { IEmprunt } from 'app/shared/model/emprunt.model';
 import { EmpruntService } from '../entities/emprunt/emprunt.service';
 import { IExemplaire, Exemplaire } from 'app/shared/model/exemplaire.model';
 import { ExemplaireService } from 'app/entities/exemplaire/exemplaire.service';
-import { UserService } from 'app/core/user/user.service';
+import { UserService } from '../core/user/user.service';
 import { BiblioService } from './biblio.service';
 import { IAuteur } from '../shared/model/auteur.model';
 import { AccountService } from 'app/core/auth/account.service';
@@ -25,7 +25,7 @@ import { Account } from 'app/core/user/account.model';
 })
 export class BiblioComponent implements OnInit {
   account: Account | null = null;
-  users: IUser[] = [];
+  users?: IUser[];
   user?: IUser;
   authSubscription?: Subscription;
   emprunts?: IEmprunt[];
@@ -38,7 +38,6 @@ export class BiblioComponent implements OnInit {
   isSaving = false;
   eventSubscriber?: Subscription;
   public titre?: string;
-  // list : any[] = [];
 
   constructor(
     protected livreService: BiblioService,
@@ -53,12 +52,12 @@ export class BiblioComponent implements OnInit {
   ) {}
 
   loadAll(): void {
-    this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
     this.livreService.query().subscribe((res: HttpResponse<ILivre[]>) => (this.livres = res.body || []));
     this.auteurSevice.query().subscribe((res: HttpResponse<IAuteur[]>) => (this.auteurs = res.body || []));
     this.exemplaireService.query().subscribe((res: HttpResponse<IExemplaire[]>) => (this.exemplaires = res.body || []));
     this.empruntService.query().subscribe((res: HttpResponse<IEmprunt[]>) => (this.emprunts = res.body || []));
     this.authSubscription = this.accountService.getAuthenticationState().subscribe(account => (this.account = account));
+    this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
   }
 
   parAuteur(): void {
@@ -75,7 +74,6 @@ export class BiblioComponent implements OnInit {
         if (this.auteurs[i].livres) {
           const tab = this.auteurs[i].livres?.find(li => li.id === id);
           if (tab) {
-            // alert(this.auteurs[i].auteur || "rien");
             return this.auteurs[i].auteur || '';
           }
         }
@@ -85,23 +83,44 @@ export class BiblioComponent implements OnInit {
   }
 
   getExem(id?: number): string {
-    const t = this.emprunts?.find(e => e.user === this.user && e.exemplaire?.disponibilite === false) || null;
-    //alert(id + " : " + this.user?.login + "/" + t)
-    if (t === null) {
-      if (this.exemplaires) {
-        const tab = this.exemplaires.filter(exem => exem.livre?.id === id && exem.disponibilite === true);
-        if (tab) {
-          return tab.length > 0 ? 'Oui' : 'Non';
-        }
+    if (this.exemplaires) {
+      const tab = this.exemplaires.filter(exem => exem.livre?.id === id && exem.disponibilite === true);
+      if (tab) {
+        return tab.length > 0 ? 'Oui' : 'Non';
       }
-    } else {
-      const exemplaire = this.createFromFormExemplaire(id);
-      this.subscribeToSaveResponse(this.exemplaireService.update(exemplaire));
-      return 'retour';
     }
+
+    // const exemplaire = this.createFromFormExemplaire(id);
+    // this.subscribeToSaveResponse(this.exemplaireService.update(exemplaire));
+
     return '';
   }
 
+  isEmprunt(id?: number): number {
+    // return t?.user?.login || "nop";
+    this.user = this.users?.find(u => String(u.login) === String(this.account?.login)) || {};
+    const t = this.emprunts?.filter(e => e.user?.id === this.user?.id) || [];
+    const k = t?.find(e => e.exemplaire?.livre?.id === id && e.exemplaire?.disponibilite === false && e.user?.id === this.user?.id);
+
+    return k?.id || 0;
+  }
+
+  rendre(id: number): void {
+    const test = this.emprunts?.find(e => e.id === id);
+
+    const exemplaire = {
+      ...new Exemplaire(),
+      id: test?.exemplaire?.id,
+      disponibilite: true,
+      livre: test?.exemplaire?.livre,
+    };
+    this.subscribeToSaveResponse(this.exemplaireService.update(exemplaire));
+
+    if (test?.id)
+      this.empruntService.delete(test?.id).subscribe(() => {
+        // this.eventManager.broadcast('livreListModification');
+      });
+  }
   loadAllParTheme(): void {
     if (this.titre) {
       this.livre = undefined;
@@ -121,11 +140,9 @@ export class BiblioComponent implements OnInit {
   ngOnInit(): void {
     this.loadAll();
     this.registerChangeInLivres();
-    this.user = this.users.find(u => String(u.login) === String(this.account?.login)) || {};
   }
 
   trackId(index: number, item: ILivre): number {
-    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-assertion
     return item.id!;
   }
 

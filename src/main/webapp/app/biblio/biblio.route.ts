@@ -10,7 +10,6 @@ import { Resolve, ActivatedRouteSnapshot, Routes, Router } from '@angular/router
 import { Observable, of, EMPTY } from 'rxjs';
 import { flatMap } from 'rxjs/operators';
 
-import { Authority } from 'app/shared/constants/authority.constants';
 import { IEmprunt, Emprunt } from 'app/shared/model/emprunt.model';
 import { EmpruntService } from '../entities/emprunt/emprunt.service';
 
