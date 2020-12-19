@@ -132,7 +132,6 @@ export class BiblioComponent implements OnInit {
   }
 
   loadLivre(): void {
-    alert(this.nombreEmprunts);
     if (this.titre) {
       this.livres = [];
       this.on = false;
