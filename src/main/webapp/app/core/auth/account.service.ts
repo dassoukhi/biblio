@@ -43,7 +43,7 @@ export class AccountService {
         }),
         tap((account: Account | null) => {
           this.authenticate(account);
-          this.router.navigateByUrl('biblio/search');
+          // this.router.navigateByUrl('biblio/search');
           if (account) {
             this.navigateToStoredUrl();
           }
@@ -77,7 +77,7 @@ export class AccountService {
     const previousUrl = this.stateStorageService.getUrl();
     if (previousUrl) {
       this.stateStorageService.clearUrl();
-      this.router.navigateByUrl('biblio/search');
+      this.router.navigateByUrl('biblio/searh');
     }
   }
 }

@@ -38,6 +38,7 @@ export class BiblioComponent implements OnInit {
   isSaving = false;
   eventSubscriber?: Subscription;
   public titre?: string;
+  nombreEmprunts = 0;
 
   constructor(
     protected livreService: BiblioService,
@@ -100,6 +101,7 @@ export class BiblioComponent implements OnInit {
     // return t?.user?.login || "nop";
     this.user = this.users?.find(u => String(u.login) === String(this.account?.login)) || {};
     const t = this.emprunts?.filter(e => e.user?.id === this.user?.id) || [];
+    this.nombreEmprunts = t.length;
     const k = t?.find(e => e.exemplaire?.livre?.id === id && e.exemplaire?.disponibilite === false && e.user?.id === this.user?.id);
 
     return k?.id || 0;
@@ -130,6 +132,7 @@ export class BiblioComponent implements OnInit {
   }
 
   loadLivre(): void {
+    alert(this.nombreEmprunts);
     if (this.titre) {
       this.livres = [];
       this.on = false;
@@ -140,6 +143,13 @@ export class BiblioComponent implements OnInit {
   ngOnInit(): void {
     this.loadAll();
     this.registerChangeInLivres();
+    setTimeout(() => {
+      this.nombreEmprunts >= 5
+        ? alert(
+            "Vous avez atteint le nombre maximum d'emprunt, pour pouvoir emprunter à nouveau vous devez rendre au moins un des livres empruntés. \n\n\nRappel : Vous avez droit à 5 emprunts par adhérent"
+          )
+        : '';
+    }, 300);
   }
 
   trackId(index: number, item: ILivre): number {

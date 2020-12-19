@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.loginModalService.open();
   }
 
+  goBiblio(): void {
+    this.router.navigateByUrl('biblio/search');
+  }
+
   ngOnDestroy(): void {
     if (this.authSubscription) {
       this.authSubscription.unsubscribe();
